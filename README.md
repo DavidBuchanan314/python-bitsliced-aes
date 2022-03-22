@@ -39,3 +39,8 @@ Size: 0x1000000 bytes. Speed: 7.216789286347978 MB/s
 Obviously, the optimal message length is around 1MB. I'm not quite sure why it slows
 down for longer messages, but I believe its happening in the bitslice packing/unpacking process.
 Longer messages could be broken up into shorter blocks, for optimal performance.
+
+For reference, the next fastest pure-python AES implementation I could find was https://github.com/ricmoo/pyaes.
+It runs at about 0.5MB/s (or with some of my own optimisations, about 0.75MB/s).
+
+This bitsliced implementation is an order of magnitude faster (although, only on inputs longer than about 1024 bytes).
