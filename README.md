@@ -6,7 +6,7 @@ Bitslice AES logic based on https://github.com/conorpp/bitsliced-aes. Thanks to 
 
 This is currently just a performance test, it has not been rigourously evaluated from a security perspective.
 
-Benchmark results from an M1 Pro macbook:
+Benchmark results from an M1 Pro macbook: (python3.9)
 
 ```
 Size: 0x10 bytes. Speed: 0.00979213948158905 MB/s
@@ -21,7 +21,7 @@ Size: 0x400000 bytes. Speed: 7.914459860922976 MB/s
 Size: 0x1000000 bytes. Speed: 7.02089122658765 MB/s
 ```
 
-Benchmark results from an AMD 3950x:
+Benchmark results from an AMD 3950x: (python3.8)
 
 ```
 Size: 0x10 bytes. Speed: 0.010748708616940834 MB/s
@@ -34,6 +34,21 @@ Size: 0x10000 bytes. Speed: 9.777050554537222 MB/s
 Size: 0x100000 bytes. Speed: 13.119903169673073 MB/s
 Size: 0x400000 bytes. Speed: 7.310395026532739 MB/s
 Size: 0x1000000 bytes. Speed: 7.216789286347978 MB/s
+```
+
+Benchmark results from an AMD 5800x: (python3.10)
+
+```
+Size: 0x10 bytes. Speed: 0.012103095577838383 MB/s
+Size: 0x100 bytes. Speed: 0.23881866099628496 MB/s
+Size: 0x200 bytes. Speed: 0.43531839039412895 MB/s
+Size: 0x400 bytes. Speed: 0.9053066467189118 MB/s
+Size: 0x800 bytes. Speed: 1.7895068950475823 MB/s
+Size: 0x1000 bytes. Speed: 3.3794519407501507 MB/s
+Size: 0x10000 bytes. Speed: 14.013407355512953 MB/s
+Size: 0x100000 bytes. Speed: 17.402108711834412 MB/s
+Size: 0x400000 bytes. Speed: 13.657595307228183 MB/s
+Size: 0x1000000 bytes. Speed: 9.780158139496866 MB/s
 ```
 
 Obviously, the optimal message length is around 1MB. I'm not quite sure why it slows
