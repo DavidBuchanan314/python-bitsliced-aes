@@ -1,0 +1,14 @@
+from bsaes import BitslicedAES128ECB
+from timeit import timeit
+import os
+
+TEST_SIZES =   [0x10, 0x100, 0x200, 0x400, 0x800, 0x1000, 0x10000, 0x100000, 0x400000, 0x1000000]
+TEST_REPEATS = [100,  100,   100,   100,   100,   100,    10,      4,        2,        1]
+
+aes = BitslicedAES128ECB(key=bytes(range(0x10)))
+
+for size, repeats in zip(TEST_SIZES, TEST_REPEATS):
+	msg = os.urandom(size)
+	time = timeit(lambda: aes.encrypt(msg), number=repeats)
+	
+	print(f"Size: 0x{size:x} bytes. Speed: {size*repeats/0x100000/time} MB/s")
